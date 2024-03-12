@@ -8,7 +8,10 @@ public class Fruit : MonoBehaviour
 
     void Start()
     {
-        
+        if (transform.position.y < 3)
+        {
+            hasntSpawned = false;
+        }
     }
 
     void Update()
@@ -22,6 +25,18 @@ public class Fruit : MonoBehaviour
         {
             hasntSpawned = false;
             Spawner.didFruitSpawnYet = false;       // nepamirsti zymeti kad ivyko/neivyko
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == gameObject.tag)
+        {
+            Spawner.spawnPosition = transform.position;
+            Spawner.isNewFruit = true;
+            Spawner.fruitLevel = int.Parse(gameObject.tag);
+            
+            Destroy(gameObject);
         }
     }
 }

@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 1105406266}
   m_Layer: 0
   m_Name: ground
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,9 +376,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerSpeed: 100
-  spawnableFruits:
-  - {fileID: 2425458336421850959, guid: 980543c12e4cb194f875ca39ab10dc3a, type: 3}
+  fruits:
+  - {fileID: 8503191022214996639, guid: da89f1ac27d0f1c4785f15268f20fee4, type: 3}
+  - {fileID: 8503191022214996639, guid: 4f124843fc3cd844197a9e6779ec682c, type: 3}
   - {fileID: 8503191022214996639, guid: 41b7eb484de923542a8515ac799d5850, type: 3}
+  - {fileID: 8503191022214996639, guid: 6371ddbf0be63a5439d87e39fb036112, type: 3}
+  - {fileID: 8503191022214996639, guid: 4efb1098393bda845816a094dd5282a8, type: 3}
 --- !u!4 &1224211609
 Transform:
   m_ObjectHideFlags: 0
@@ -434,7 +437,7 @@ GameObject:
   - component: {fileID: 1883787706}
   m_Layer: 0
   m_Name: wallLeft
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +567,7 @@ GameObject:
   - component: {fileID: 1940604151}
   m_Layer: 0
   m_Name: wallRight
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

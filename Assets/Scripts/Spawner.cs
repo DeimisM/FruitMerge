@@ -5,9 +5,13 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public float spawnerSpeed = 100;
-    public Transform[] spawnableFruits;
+    public Transform[] fruits;
+
+    static public int fruitLevel = 0;
+    static public bool isNewFruit = false;
     static public bool didFruitSpawnYet = false;
 
+    static public Vector2 spawnPosition;
     static public Vector2 spawnerXPos;
 
     void Start()
@@ -18,6 +22,7 @@ public class Spawner : MonoBehaviour
     public void Update()
     {
         SpawnNewFruit();
+        SpawnBetterFruit();
 
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
@@ -31,7 +36,7 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnCooldown()
     {
         yield return new WaitForSeconds(1f);
-        Instantiate(spawnableFruits[Random.Range(0, spawnableFruits.Length)], transform.position, transform.rotation);
+        Instantiate(fruits[Random.Range(0, fruits.Length)], transform.position, transform.rotation);
     }
 
     void SpawnNewFruit()
@@ -41,6 +46,15 @@ public class Spawner : MonoBehaviour
             StartCoroutine(SpawnCooldown());
             //Instantiate(spawnableFruits[Random.Range(0, spawnableFruits.Length)], transform.position, transform.rotation);
             didFruitSpawnYet = true;
+        }
+    }
+
+    public void SpawnBetterFruit ()
+    {
+        if (isNewFruit)
+        {
+            isNewFruit = false;
+            Instantiate(fruits[fruitLevel ++], spawnPosition, transform.rotation);
         }
     }
 }
